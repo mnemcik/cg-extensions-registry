@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mnemcik/cg-extensions-registry/main/schema/index.schema.json",
+  "version": 1,
+  "extensions": [
+    {
+      "name": "1password",
+      "description": "1Password as authoritative credential store",
+      "repo": "https://github.com/mnemcik/cg-ext-1password",
+      "latestVersion": "0.0.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-ext-1password/main/cg-extension.json"
+    }
+  ]
+}

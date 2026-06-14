@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/mnemcik/cg-extensions-registry/main/schema/index.schema.json",
+  "title": "Consigliere extensions registry index",
+  "type": "object",
+  "required": ["version", "extensions"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Registry index schema version."
+    },
+    "extensions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["name", "description", "repo", "latestVersion", "manifestUrl"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Unique short name; the cg extension install <name>."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repo": {
+          "type": "string",
+          "format": "uri",
+          "description": "Git repo URL cloned on install."
+        },
+        "latestVersion": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+",
+          "description": "Latest published extension semver."
+        },
+        "manifestUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Raw URL to the extension's cg-extension.json."
+        }
+      }
+    }
+  }
+}
