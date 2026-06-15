@@ -17,6 +17,14 @@
       "path": "spec-driven",
       "latestVersion": "0.1.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/spec-driven/cg-extension.json"
+    },
+    {
+      "name": "voice",
+      "description": "Draft outbound messages in the user's own voice — loads a VOICE.md style guide before writing",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "voice",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/voice/cg-extension.json"
     }
   ]
 }
