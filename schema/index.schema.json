@@ -37,6 +37,10 @@
           "format": "uri",
           "description": "Git repo URL cloned on install."
         },
+        "path": {
+          "type": "string",
+          "description": "Subdir within repo holding cg-extension.json, for extensions co-located in one repo (a monorepo). Absent means the repo root."
+        },
         "latestVersion": {
           "type": "string",
           "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+",
