@@ -1,8 +1,9 @@
 # cg-extensions-registry
 
 The central catalogue of installable [Consigliere](https://github.com/mnemcik/consigliere)
-extensions. `cg extension install <name>` resolves `<name>` here, then clones the
-extension's own repo.
+extensions. As of `cg` v1.6.0, installs are fully qualified: `cg extension install cg/<name>`
+resolves `<name>` in this registry (the built-in `cg` alias points here), then clones the
+extension's own repo. Bare names are rejected.
 
 This registry is deliberately a **separate repo** from `cg` so the catalogue can
 grow without a `cg` binary release.
