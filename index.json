@@ -9,6 +9,14 @@
       "path": "1password",
       "latestVersion": "0.1.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/1password/cg-extension.json"
+    },
+    {
+      "name": "spec-driven",
+      "description": "Spec-driven development workflow for greenfield software builds (PRD → specs → milestone implementation)",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "spec-driven",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/spec-driven/cg-extension.json"
     }
   ]
 }
