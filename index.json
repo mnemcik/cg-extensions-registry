@@ -25,6 +25,14 @@
       "path": "voice",
       "latestVersion": "0.1.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/voice/cg-extension.json"
+    },
+    {
+      "name": "gmail-digest",
+      "description": "Gmail digest shortcut — turn \"check/digest X updates\" into a structured digest of unread Gmail for a label, with per-target tracking",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "gmail-digest",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/gmail-digest/cg-extension.json"
     }
   ]
 }
