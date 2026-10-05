@@ -7,7 +7,7 @@
       "description": "1Password as authoritative credential store",
       "repo": "https://github.com/mnemcik/cg-extensions",
       "path": "1password",
-      "latestVersion": "0.1.0",
+      "latestVersion": "0.1.1",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/1password/cg-extension.json"
     },
     {
@@ -15,7 +15,7 @@
       "description": "Spec-driven development workflow for greenfield software builds (PRD → specs → milestone implementation)",
       "repo": "https://github.com/mnemcik/cg-extensions",
       "path": "spec-driven",
-      "latestVersion": "0.1.0",
+      "latestVersion": "0.1.1",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/spec-driven/cg-extension.json"
     },
     {
