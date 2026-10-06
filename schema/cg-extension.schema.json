@@ -73,6 +73,22 @@
         "templates": {
           "type": "array",
           "items": { "$ref": "#/$defs/copy" }
+        },
+        "git-hooks": {
+          "type": "array",
+          "description": "Executable scripts run by cg's dispatcher for a client-side git hook, copied to .cg/git-hooks/<hook>.d/<name>-<base> in the workspace. Requires a cg release with git-hooks support.",
+          "items": {
+            "type": "object",
+            "required": ["hook", "script"],
+            "additionalProperties": false,
+            "properties": {
+              "hook": {
+                "type": "string",
+                "enum": ["pre-commit", "prepare-commit-msg", "commit-msg", "post-commit", "post-checkout", "post-merge", "post-rewrite", "pre-push", "pre-rebase"]
+              },
+              "script": { "type": "string", "minLength": 1 }
+            }
+          }
         }
       }
     }
