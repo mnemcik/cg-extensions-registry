@@ -41,6 +41,14 @@
       "path": "gh-account-resolver",
       "latestVersion": "0.2.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/gh-account-resolver/cg-extension.json"
+    },
+    {
+      "name": "bundle-backup",
+      "description": "Back up the workspace as a git bundle to a folder (e.g. a synced company drive) after every commit, merge or rewrite — no remote needed (cg 1.25+)",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "bundle-backup",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/bundle-backup/cg-extension.json"
     }
   ]
 }
