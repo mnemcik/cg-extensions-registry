@@ -89,6 +89,19 @@
               "script": { "type": "string", "minLength": 1 }
             }
           }
+        },
+        "gitignore": {
+          "type": "array",
+          "description": "Lines added to the workspace .gitignore as a block delimited by # ext:<name>:gitignore:start=<id> / end=<id> comments, removed on uninstall. Requires a cg release with gitignore support.",
+          "items": {
+            "type": "object",
+            "required": ["id", "path"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "path": { "type": "string", "minLength": 1 }
+            }
+          }
         }
       }
     }
