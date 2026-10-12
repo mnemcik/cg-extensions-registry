@@ -55,7 +55,7 @@
       "description": "Use the workspace as an Obsidian vault: shared vault config, per-machine state ignored, a Bases view of active projects, and the gotchas that affect how Claude writes files (cg 1.26+)",
       "repo": "https://github.com/mnemcik/cg-extensions",
       "path": "obsidian",
-      "latestVersion": "0.1.0",
+      "latestVersion": "0.1.1",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/obsidian/cg-extension.json"
     }
   ]
