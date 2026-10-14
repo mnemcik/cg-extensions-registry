@@ -43,7 +43,7 @@
         },
         "notes": {
           "type": "array",
-          "items": { "$ref": "#/$defs/copy" }
+          "items": { "$ref": "#/$defs/note" }
         },
         "hooks": {
           "type": "array",
@@ -114,6 +114,20 @@
       "properties": {
         "src": { "type": "string", "minLength": 1 },
         "dest": { "type": "string", "minLength": 1 }
+      }
+    },
+    "note": {
+      "type": "object",
+      "required": ["src", "dest"],
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string", "minLength": 1 },
+        "dest": { "type": "string", "minLength": 1 },
+        "index": {
+          "type": "string",
+          "not": { "pattern": "[\\r\\n]" },
+          "description": "One-line description on the note's row in the workspace notes index, after its linked title. Requires a cg release with notes index rows support."
+        }
       }
     }
   }
