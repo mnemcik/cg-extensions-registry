@@ -125,8 +125,8 @@
         "dest": { "type": "string", "minLength": 1 },
         "index": {
           "type": "string",
-          "pattern": "^[^\\r\\n]*$",
-          "description": "One-line description on the note's row in the workspace notes index, after its linked title. Requires a cg release with notes index rows (1.29.0)."
+          "not": { "pattern": "[\\r\\n]" },
+          "description": "One-line description on the note's row in the workspace notes index, after its linked title. Requires a cg release with notes index rows support."
         }
       }
     }
