@@ -57,6 +57,14 @@
       "path": "obsidian",
       "latestVersion": "0.1.1",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/obsidian/cg-extension.json"
+    },
+    {
+      "name": "shopping",
+      "description": "One shared shopping list for the workspace: any project adds items with cg shop, open items group by supplier so one order covers every project; one file per item, so parallel sessions never conflict (cg 1.30.2+)",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "shopping",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/shopping/cg-extension.json"
     }
   ]
 }
