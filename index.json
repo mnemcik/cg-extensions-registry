@@ -73,6 +73,14 @@
       "path": "live-runs",
       "latestVersion": "0.1.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/live-runs/cg-extension.json"
+    },
+    {
+      "name": "tmux",
+      "description": "Starts the workspace's AI session when you run cg in its own session on cg's own tmux server (tmux -L cg), so it survives closing the terminal and tools can open panes next to it; your own tmux is left alone (cg 1.32+, tmux 3.2+)",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "tmux",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/tmux/cg-extension.json"
     }
   ]
 }
