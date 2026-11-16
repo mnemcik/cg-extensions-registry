@@ -65,6 +65,14 @@
       "path": "shopping",
       "latestVersion": "0.1.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/shopping/cg-extension.json"
+    },
+    {
+      "name": "live-runs",
+      "description": "Watch headless claude -p runs live: cg live run logs every agent step and each shell command's output as it happens, cg live watch shows it (a tmux split next to the session inside tmux); same result JSON as --output-format json (cg 1.30.2+)",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "live-runs",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/live-runs/cg-extension.json"
     }
   ]
 }
