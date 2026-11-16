@@ -102,6 +102,20 @@
               "path": { "type": "string", "minLength": 1 }
             }
           }
+        },
+        "launcher": {
+          "type": "array",
+          "maxItems": 1,
+          "description": "Wraps the agent cg start (and bare cg in a workspace) runs: cg runs bin/<binary> <args...> -- <agent argv...> <user args...> instead of the agent. At most one entry. Requires a cg release with launcher support; older cg ignores it.",
+          "items": {
+            "type": "object",
+            "required": ["binary"],
+            "additionalProperties": false,
+            "properties": {
+              "binary": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "args": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+            }
+          }
         }
       }
     }
