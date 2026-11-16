@@ -81,6 +81,14 @@
       "path": "tmux",
       "latestVersion": "0.2.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/tmux/cg-extension.json"
+    },
+    {
+      "name": "github-digest",
+      "description": "Digest a watched GitHub repo's activity since the last digest straight from the GitHub API, no notification email needed: a Claude Code skill plus a read-only gh fetcher, with per-repo targets and a since-cursor",
+      "repo": "https://github.com/mnemcik/cg-extensions",
+      "path": "github-digest",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/github-digest/cg-extension.json"
     }
   ]
 }
