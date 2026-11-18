@@ -39,7 +39,7 @@
       "description": "Per-call gh account routing: a gh wrapper on PATH, installed per Claude session, picks the logged-in gh account each call needs so parallel sessions don't fight over global gh auth state",
       "repo": "https://github.com/mnemcik/cg-extensions",
       "path": "gh-account-resolver",
-      "latestVersion": "0.2.0",
+      "latestVersion": "0.2.1",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/gh-account-resolver/cg-extension.json"
     },
     {
