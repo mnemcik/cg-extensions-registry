@@ -14,7 +14,7 @@ grow without a `cg` binary release.
 |------|---------|
 | [`index.json`](index.json) | The catalogue — a versioned array of extension entries. |
 | [`schema/index.schema.json`](schema/index.schema.json) | JSON Schema for `index.json`. |
-| [`schema/cg-extension.schema.json`](schema/cg-extension.schema.json) | JSON Schema for an extension's `cg-extension.json` manifest (v1). |
+| [`schema/cg-extension.schema.json`](schema/cg-extension.schema.json) | JSON Schema for an extension's `cg-extension.json` manifest (v1, and v2 from cg 2.0). |
 
 ## Adding your extension
 
