@@ -5,11 +5,21 @@
   "type": "object",
   "required": ["manifest", "name", "version", "description", "contributes"],
   "additionalProperties": false,
+  "if": {
+    "properties": {
+      "contributes": {
+        "required": ["commands"],
+        "properties": { "commands": { "minItems": 1 } }
+      }
+    },
+    "required": ["contributes"]
+  },
+  "then": { "properties": { "manifest": { "const": 2 } } },
   "properties": {
     "manifest": {
       "type": "integer",
-      "const": 1,
-      "description": "Manifest schema version. v1 = 1."
+      "enum": [1, 2],
+      "description": "Manifest schema version. v2 (cg 2.0+) is required for a manifest that declares commands; a v1 manifest without commands stays valid."
     },
     "name": {
       "type": "string",
@@ -55,6 +65,19 @@
               "event": { "type": "string", "minLength": 1 },
               "wrapper": { "type": "string", "minLength": 1 },
               "command": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "commands": {
+          "type": "array",
+          "description": "Commands the extension provides (cg 2.0+): each command is one or more words, served by a binary in the extension's bin/.",
+          "items": {
+            "type": "object",
+            "required": ["command", "binary"],
+            "additionalProperties": false,
+            "properties": {
+              "command": { "type": "string", "pattern": "^[a-z0-9-]+( [a-z0-9-]+)*$" },
+              "binary": { "type": "string", "pattern": "^[a-z0-9-]+$" }
             }
           }
         },
