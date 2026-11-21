@@ -6,7 +6,12 @@
   "required": ["manifest", "name", "version", "description", "contributes"],
   "additionalProperties": false,
   "if": {
-    "properties": { "contributes": { "required": ["commands"] } },
+    "properties": {
+      "contributes": {
+        "required": ["commands"],
+        "properties": { "commands": { "minItems": 1 } }
+      }
+    },
     "required": ["contributes"]
   },
   "then": { "properties": { "manifest": { "const": 2 } } },
