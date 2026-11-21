@@ -8,8 +8,9 @@
   "if": {
     "properties": {
       "contributes": {
+        "type": "object",
         "required": ["commands"],
-        "properties": { "commands": { "minItems": 1 } }
+        "properties": { "commands": { "type": "array", "minItems": 1 } }
       }
     },
     "required": ["contributes"]
