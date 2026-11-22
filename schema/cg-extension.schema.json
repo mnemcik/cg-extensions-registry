@@ -71,13 +71,13 @@
         },
         "commands": {
           "type": "array",
-          "description": "Commands the extension provides (cg 2.0+): each command is one or more words, served by a binary in the extension's bin/.",
+          "description": "Commands the extension provides (cg 2.0+): each command is one or more words (a letter or digit first), served by a binary in the extension's bin/.",
           "items": {
             "type": "object",
             "required": ["command", "binary"],
             "additionalProperties": false,
             "properties": {
-              "command": { "type": "string", "pattern": "^[a-z0-9-]+( [a-z0-9-]+)*$" },
+              "command": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*( [a-z0-9][a-z0-9-]*)*$" },
               "binary": { "type": "string", "pattern": "^[a-z0-9-]+$" }
             }
           }
