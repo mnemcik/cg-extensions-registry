@@ -36,6 +36,17 @@ grow without a `cg` binary release.
 Entries are validated against `schema/index.schema.json`. `name` must be unique
 and match `^[a-z0-9-]+$`.
 
+## How a PR gets to merge
+
+This registry follows the same flow as `cg-extensions`: every change, a new entry included, starts as an issue, and
+each role (author, maintainer, reviewers) carries the same responsibilities. See
+[How a PR gets to merge](https://github.com/mnemcik/cg-extensions#how-a-pr-gets-to-merge) in the `cg-extensions`
+README for the roles and the impact review.
+
+Here the required check is **`impact-review`**, a commit status on the PR's head commit. The maintainer sets it after
+the impact review; until it is `success`, the PR can't merge. A status belongs to one commit, so a push, including an
+update from `main`, needs a new review.
+
 ## Trust model
 
 The registry is curated by PR. Consigliere v1 does **not** sign or verify
