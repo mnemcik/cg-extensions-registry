@@ -38,14 +38,20 @@ and match `^[a-z0-9-]+$`.
 
 ## How a PR gets to merge
 
-This registry follows the same flow as `cg-extensions`: every change, a new entry included, starts as an issue, and
-each role (author, maintainer, reviewers) carries the same responsibilities. See
-[How a PR gets to merge](https://github.com/mnemcik/cg-extensions#how-a-pr-gets-to-merge) in the `cg-extensions`
-README for the roles and the impact review.
+This registry follows the `cg-extensions` flow: see
+[How a PR gets to merge](https://github.com/mnemcik/cg-extensions#how-a-pr-gets-to-merge)
+in its README for the roles (author, maintainer, reviewers) and the impact review.
+Every change starts as an issue, adding an extension included: open the issue first,
+and the PR in step 3 above says `Fixes #NNN`.
 
-Here the required check is **`impact-review`**, a commit status on the PR's head commit. The maintainer sets it after
-the impact review; until it is `success`, the PR can't merge. A status belongs to one commit, so a push, including an
-update from `main`, needs a new review.
+Here the required check is **`impact-review`**, a commit status on the PR's head
+commit. The maintainer sets it on this repository after the impact review; until it
+is `success`, the PR can't merge. A status belongs to one commit, so a push,
+including an update from `main`, needs a new review.
+
+Two differences from `cg-extensions`: no approving review is required, and there is
+no Impact Review workflow, so the maintainer sets the status on every PR, bot PRs
+included.
 
 ## Trust model
 
