@@ -49,9 +49,9 @@ commit. The maintainer sets it on this repository after the impact review; until
 is `success`, the PR can't merge. A status belongs to one commit, so a push,
 including an update from `main`, needs a new review.
 
-Two differences from `cg-extensions`: no approving review is required, and there is
-no Impact Review workflow, so the maintainer sets the status on every PR, bot PRs
-included.
+Differences from `cg-extensions`: no approving review is required, there is no PR
+template, and there is no Impact Review workflow, so the maintainer sets the status
+on every PR, bot PRs included.
 
 ## Trust model
 
