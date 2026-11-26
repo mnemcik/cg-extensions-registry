@@ -21,7 +21,9 @@ grow without a `cg` binary release.
 1. Publish your extension repo with a `cg-extension.json` at its root (see the
    [authoring guide](https://github.com/mnemcik/consigliere/blob/main/EXTENSIONS.md)).
 2. Tag a release.
-3. Open a PR adding an entry to `index.json`:
+3. Open an issue in [cg-extensions](https://github.com/mnemcik/cg-extensions/issues),
+   then a PR here that says `Fixes mnemcik/cg-extensions#NNN` and adds an entry to
+   `index.json` (see [How a PR gets to merge](#how-a-pr-gets-to-merge)):
 
    ```json
    {
@@ -41,17 +43,22 @@ and match `^[a-z0-9-]+$`.
 This registry follows the `cg-extensions` flow: see
 [How a PR gets to merge](https://github.com/mnemcik/cg-extensions#how-a-pr-gets-to-merge)
 in its README for the roles (author, maintainer, reviewers) and the impact review.
-Every change starts as an issue, adding an extension included: open the issue first,
-and the PR in step 3 above says `Fixes #NNN`.
+Every change starts as an issue, adding an extension included. Registry issues are
+filed in [cg-extensions](https://github.com/mnemcik/cg-extensions/issues), so a
+registry PR says `Fixes mnemcik/cg-extensions#NNN`.
 
 Here the required check is **`impact-review`**, a commit status on the PR's head
 commit. The maintainer sets it on this repository after the impact review; until it
 is `success`, the PR can't merge. A status belongs to one commit, so a push,
 including an update from `main`, needs a new review.
 
-Differences from `cg-extensions`: no approving review is required, there is no PR
-template, and there is no Impact Review workflow, so the maintainer sets the status
-on every PR, bot PRs included.
+Differences from `cg-extensions`:
+
+- no `specs/` folder: the issue's agreement comment is the spec;
+- no approving review is required;
+- no PR template;
+- no Impact Review workflow, so the maintainer sets the status on every PR, bot PRs
+  included.
 
 ## Trust model
 
