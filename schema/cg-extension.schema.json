@@ -5,22 +5,63 @@
   "type": "object",
   "required": ["manifest", "name", "version", "description", "contributes"],
   "additionalProperties": false,
-  "if": {
-    "properties": {
-      "contributes": {
-        "type": "object",
-        "required": ["commands"],
-        "properties": { "commands": { "type": "array", "minItems": 1 } }
-      }
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "contributes": {
+            "type": "object",
+            "required": ["commands"],
+            "properties": { "commands": { "type": "array", "minItems": 1 } }
+          }
+        },
+        "required": ["contributes"]
+      },
+      "then": { "properties": { "manifest": { "const": 2 } } }
     },
-    "required": ["contributes"]
-  },
-  "then": { "properties": { "manifest": { "const": 2 } } },
+    {
+      "if": {
+        "properties": {
+          "contributes": {
+            "type": "object",
+            "required": ["hooks"],
+            "properties": {
+              "hooks": {
+                "type": "array",
+                "contains": {
+                  "type": "object",
+                  "anyOf": [
+                    { "required": ["matcher"], "properties": { "matcher": { "type": "string", "minLength": 1 } } },
+                    { "required": ["if"] }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "required": ["contributes"]
+      },
+      "then": { "properties": { "manifest": { "const": 2 } } }
+    },
+    {
+      "if": {
+        "properties": {
+          "contributes": {
+            "type": "object",
+            "required": ["skills"],
+            "properties": { "skills": { "type": "array", "minItems": 1 } }
+          }
+        },
+        "required": ["contributes"]
+      },
+      "then": { "properties": { "manifest": { "const": 2 } } }
+    }
+  ],
   "properties": {
     "manifest": {
       "type": "integer",
       "enum": [1, 2],
-      "description": "Manifest schema version. v2 (cg 2.0+) is required for a manifest that declares commands; a v1 manifest without commands stays valid."
+      "description": "Manifest schema version. v2 (cg 2.0+) is required for a manifest that declares commands or skills, or sets matcher or if on a hook entry; a v1 manifest without them stays valid."
     },
     "name": {
       "type": "string",
@@ -35,6 +76,19 @@
     "description": {
       "type": "string",
       "minLength": 1
+    },
+    "requires": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "What the extension needs to work. Allowed in v1 and v2 manifests.",
+      "properties": {
+        "cg": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,2}$",
+          "not": { "pattern": "\\s" },
+          "description": "Lowest cg release the extension works with (cg 2.0+ enforces it; older cg ignores it)."
+        }
+      }
     },
     "contributes": {
       "type": "object",
@@ -65,7 +119,24 @@
             "properties": {
               "event": { "type": "string", "minLength": 1 },
               "wrapper": { "type": "string", "minLength": 1 },
-              "command": { "type": "string", "minLength": 1 }
+              "command": { "type": "string", "minLength": 1 },
+              "matcher": {
+                "type": "string",
+                "description": "Claude Code's matcher, written on the entry's matcher group as it is (cg 2.0+, manifest v2 when non-empty). An empty matcher matches everything."
+              },
+              "if": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Claude Code's if: one permission rule, written on the entry's handler as it is (cg 2.0+, manifest v2). Only on the events Claude Code evaluates it on."
+              }
+            },
+            "if": { "required": ["if"] },
+            "then": {
+              "properties": {
+                "event": {
+                  "enum": ["PreToolUse", "PostToolUse", "PostToolUseFailure", "PermissionRequest", "PermissionDenied", "PreSkillShellCommand"]
+                }
+              }
             }
           }
         },
@@ -79,6 +150,23 @@
             "properties": {
               "command": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*( [a-z0-9][a-z0-9-]*)*$" },
               "binary": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+            }
+          }
+        },
+        "skills": {
+          "type": "array",
+          "description": "Agent skills cg installs and manages (cg 2.0+, manifest v2): each entry ships the directory src (holding SKILL.md) as a skill named after its base name; executables lists the files, relative to src, installed executable.",
+          "items": {
+            "type": "object",
+            "required": ["src"],
+            "additionalProperties": false,
+            "properties": {
+              "src": { "type": "string", "minLength": 1 },
+              "executables": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": { "type": "string", "minLength": 1 }
+              }
             }
           }
         },
