@@ -84,10 +84,10 @@
     },
     {
       "name": "github-digest",
-      "description": "Digest a watched GitHub repo's activity since the last digest straight from the GitHub API, no notification email needed: a Claude Code skill plus a read-only gh fetcher, with per-repo targets and a since-cursor (gh 2.48+)",
+      "description": "Digest a watched GitHub repo's activity since the last digest straight from the GitHub API, no notification email needed: a Claude Code skill plus a read-only gh fetcher, with per-repo targets and a since-cursor (gh 2.48+, cg 2.0+)",
       "repo": "https://github.com/mnemcik/cg-extensions",
       "path": "github-digest",
-      "latestVersion": "0.2.0",
+      "latestVersion": "0.3.0",
       "manifestUrl": "https://raw.githubusercontent.com/mnemcik/cg-extensions/main/github-digest/cg-extension.json"
     }
   ]
