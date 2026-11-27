@@ -92,6 +92,7 @@
     },
     "contributes": {
       "type": "object",
+      "description": "What the extension contributes. The v1 subcommands key is not accepted (cg 2.0 doesn't read it): declare commands in commands, with manifest 2.",
       "additionalProperties": false,
       "properties": {
         "claude-md-sections": {
@@ -167,18 +168,6 @@
                 "uniqueItems": true,
                 "items": { "type": "string", "minLength": 1 }
               }
-            }
-          }
-        },
-        "subcommands": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["namespace", "binary"],
-            "additionalProperties": false,
-            "properties": {
-              "namespace": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-              "binary": { "type": "string", "pattern": "^[a-z0-9-]+$" }
             }
           }
         },
