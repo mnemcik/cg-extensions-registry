@@ -42,13 +42,26 @@
         "required": ["contributes"]
       },
       "then": { "properties": { "manifest": { "const": 2 } } }
+    },
+    {
+      "if": {
+        "properties": {
+          "contributes": {
+            "type": "object",
+            "required": ["skills"],
+            "properties": { "skills": { "type": "array", "minItems": 1 } }
+          }
+        },
+        "required": ["contributes"]
+      },
+      "then": { "properties": { "manifest": { "const": 2 } } }
     }
   ],
   "properties": {
     "manifest": {
       "type": "integer",
       "enum": [1, 2],
-      "description": "Manifest schema version. v2 (cg 2.0+) is required for a manifest that declares commands or sets matcher or if on a hook entry; a v1 manifest without them stays valid."
+      "description": "Manifest schema version. v2 (cg 2.0+) is required for a manifest that declares commands or skills, or sets matcher or if on a hook entry; a v1 manifest without them stays valid."
     },
     "name": {
       "type": "string",
@@ -137,6 +150,23 @@
             "properties": {
               "command": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*( [a-z0-9][a-z0-9-]*)*$" },
               "binary": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+            }
+          }
+        },
+        "skills": {
+          "type": "array",
+          "description": "Agent skills cg installs and manages (cg 2.0+, manifest v2): each entry ships the directory src (holding SKILL.md) as a skill named after its base name; executables lists the files, relative to src, installed executable.",
+          "items": {
+            "type": "object",
+            "required": ["src"],
+            "additionalProperties": false,
+            "properties": {
+              "src": { "type": "string", "minLength": 1 },
+              "executables": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": { "type": "string", "minLength": 1 }
+              }
             }
           }
         },
